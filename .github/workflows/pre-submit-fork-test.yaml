@@ -1,38 +1,48 @@
-name: Students Presubmit Tests
+name: Students Presubmit Fork Tests
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - edited
-      - synchronize
+  push:
+    branches:
+      - main
 jobs:
-  BranchesQ:
+  Branches:
     runs-on: ubuntu-latest
     steps:
-      - name: clone
-        run: | 
-          git clone https://github.com/${{ github.event.pull_request.head.repo.full_name }} tmprepo
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: test branches question
         run: |
-          cd tmprepo
-          git checkout main
           cd test
           bash branches.sh
+  MergeConflict:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: test conflict question
         run: |
-          cd tmprepo
           git checkout main
           cd test
           bash conflict.sh
+  SensitiveData:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: test sensitive data question
         run: |
-          cd tmprepo
           git checkout main
           bash test/sensitive_data.sh
+  MergeRepos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: test merge repos question
         run: |
-          cd tmprepo
           git checkout main
           cd test
           bash merge_repos.sh

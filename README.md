@@ -1,17 +1,19 @@
 # Git Exercise
 
+[![License:CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+
 ## Guidelines
 
 1. Fork this repo and clone your forked repo locally. **Make sure you fork ALL branches, not only `main`**
-2. Answer the below questions, commit your results and push them to the forked repo (make sure you push all the involved branches).
-3. Create a PR from branch `main` of your forked repo into `main` of the original repo. 
-4. Make sure you pass automatic tests.
+2. Answer the below questions, commit your results and push them (make sure you push all the involved branches).
+3. Check GitHub Actions **in your forked repo** (you may need to enable it) for test results. Make sure you pass the automatic tests of the **Students Presubmit Fork Tests** workflow. 
 
 ## Branches 
 
 Create the following git commit tree. You can add any file you want in each commit. 
 The message for each commit is denoted in the graph (`c1`, `c2`,..., `c12`). 
-Note the (lightweight) tags in commit `c4` and `c8`. 
+Note the (lightweight) tags in the merge commits and commit `c8`. 
 Make sure to create exactly these names for branches and commit messages.
 
 The parent commit of `c1` should be the last commit in branch `main` after a fresh clone of this repo (commit with message `start here`). 
@@ -48,7 +50,7 @@ gitGraph
 **Notes**:
 
 - If you've messed up the repo, you can always checkout branch main and run `git reset --hard <commit-id>` where `<commit-id>` is the commit hash from which you need to start.
-- By default, your tags are'nt being pushed to remote. Make sure to push your tags using the `--tags` flag in the `git push` command.
+- By default, your tags aren't being pushed to remote. Make sure to push your tags using the `--tags` flag in the `git push` command.
 
 ### Test it locally
 
@@ -131,7 +133,7 @@ The branch content should be identical to what it was before your fix, except th
 There are many approaches to solve it, some are using `git reset --hard`, `git rebase` or `git cherry-pick`. Find your preferred way.
 You should find the branch contains the vulnerable data, learn its structure and data, and remove the vulnerable commit carefully, without loosing data committed in other commits. 
 
-Since you've changed the commit history, you may be needing to `--force`fully push your fixed branch to remote. 
+The commit shouldn't be found also in remote branches. Since you've changed the commit history, you may be needing to `--force`fully push your fixed branch to remote. 
 
 In order to prevent this vulnerability in the future, integrate [pre commit](https://pre-commit.com/) into your repo, and add a plugin that blocks any commits that contains AWS credentials data.
 Verify that the tool is working - try to commit the below text and make sure pre-commit is blocking you.
@@ -185,11 +187,11 @@ You have been assigned the task of merging two different Git repositories, each 
 The repositories were maintained by separate teams and have separate commit histories. 
 Your goal is to **preserve the entire commit history** of both repositories while merging the code into a single Git repository, ensuring that the microservices remain functional and properly integrated with each other.
 
-Merge the [GitExerciseOther](https://github.com/alonitac/GitExerciseOther.git) repo into this (GitExercise) repository. 
+Merge the [GitExerciseOther](https://github.com/alonitac/GitExerciseOther.git) repo into this (GitProject) repository. 
 The `main` branch of the monorepo should have the following file structure:
 
 ```text
-GitExercise
+GitProject
 └── serviceA/
         ├── [service A files...]
     serviceB/
