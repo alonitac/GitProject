@@ -7,7 +7,7 @@ git checkout main
 
 for commit_id in "${commit_ids[@]}"; do
   if ! git rev-parse --quiet --verify "$commit_id" >/dev/null; then
-    echo "Commit ID $commit_id does not exist in the repository, but do exist in GitExerciseOther repo."
+    echo "Commit ID $commit_id does not exist in the repository, but do exist in GitProjectAnother repo."
     exit 1
   fi
 done
@@ -15,6 +15,7 @@ done
 for file in "${files[@]}"; do
   if [[ ! -f "../serviceB/$file" ]]; then
     echo "File $file does not exist in the serviceB dir."
+    exit 1
   fi
 done
 
