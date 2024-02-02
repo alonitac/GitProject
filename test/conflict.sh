@@ -39,4 +39,8 @@ then
   exit 1
 fi
 
+<<<<<<< HEAD
 echo -e "\n\nWell done! the conflict has been resolved correctly!"
+=======
+
+>>>>>>> 9a7581b (init commit)
