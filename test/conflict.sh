@@ -40,7 +40,11 @@ then
 fi
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 echo -e "\n\nWell done! the conflict has been resolved correctly!"
 =======
 
 >>>>>>> 9a7581b (init commit)
+=======
+echo -e "\n\nWell done! the conflict has been resolved correctly!"
+>>>>>>> 95c7e64 (start here)
