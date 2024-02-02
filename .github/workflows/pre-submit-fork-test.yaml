@@ -1,0 +1,50 @@
+name: Students Presubmit Fork Tests
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Branches:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: test branches question
+        run: |
+          cd test
+          bash branches.sh
+  MergeConflict:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: test conflict question
+        run: |
+          git checkout main
+          cd test
+          bash conflict.sh
+  SensitiveData:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: test sensitive data question
+        run: |
+          git checkout main
+          bash test/sensitive_data.sh
+  MergeRepos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: test merge repos question
+        run: |
+          git checkout main
+          cd test
+          bash merge_repos.sh
+          
+          
